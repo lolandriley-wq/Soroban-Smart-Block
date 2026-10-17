@@ -8,6 +8,7 @@ use soroban_sdk::{
     token, Bytes, BytesN, Env, String, Symbol, Vec,
 };
 
+mod mmr;
 mod state;
 
 #[cfg(kani)]
@@ -71,6 +72,9 @@ pub enum DataKey {
     RegistrationTreasury,
     /// Deposit held for a registered contract.
     ContractDeposit(BytesN<32>),
+    /// Event Merkle Mountain Range: leaf count and peak per level (see `mmr.rs`).
+    MmrLeafCount,
+    MmrPeak(u32),
 }
 
 #[allow(missing_docs)]
