@@ -60,6 +60,17 @@ pub enum DataKey {
     Ownership(BytesN<32>),
     /// Admin-attested deployer of a target contract (claim fallback path).
     Deployer(BytesN<32>),
+    /// Storage schema version, advanced by `migrate`.
+    SchemaVersion,
+    /// Resumable cursor for `migrate`.
+    MigrationCursor,
+    /// Refundable registration deposit amount and token (see `set_registration_deposit`).
+    RegistrationDepositAmount,
+    RegistrationDepositToken,
+    /// Treasury receiving forfeited registration deposits.
+    RegistrationTreasury,
+    /// Deposit held for a registered contract.
+    ContractDeposit(BytesN<32>),
 }
 
 #[allow(missing_docs)]
